@@ -6,5 +6,5 @@ Steps to setup the framework:
 - Setup local environment
 - Install the dependances from requirements.txt
 - Setup allure: download from: https://github.com/allure-framework/allure2/releases,
-  add bin directory to user variables PATH.
-- Run tests from the terminal with the command: "pytest .\tests\test_request_inspection.py"
+  add 'bin' directory to user variables PATH.
+- Run tests from the terminal with the command: "pytest .\tests\."
