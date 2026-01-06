@@ -18,3 +18,14 @@ def per_test_setup_teardown():
     yield
 
     logger.info("=== Test END ===")
+
+@pytest.hookimpl(hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    report = outcome.get_result()
+    if report.when == "call":
+        if report.passed:
+            logger.info("TEST PASSED: %s", item.nodeid)
+        elif report.failed:
+            logger.error("TEST FAILED: %s", item.nodeid)
+            logger.error(report.longrepr)

@@ -3,3 +3,6 @@ get_headers: /headers
 get_user-agent: /user-agent
 get_uuid: /uuid
 get_bytes_generator: /bytes/
+get_html: /html
+get_json: /json
+get_robots: /robots.txt
