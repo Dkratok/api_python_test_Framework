@@ -1,0 +1,6 @@
+Headers:
+  - Accept
+  - Accept-Encoding
+  - Host
+  - User-Agent
+  - X-Amzn-Trace-Id
