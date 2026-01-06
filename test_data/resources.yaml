@@ -1,3 +1,4 @@
 get_ip: /ip
 get_headers: /headers
 get_user-agent: /user-agent
+get_uuid: /uuid
