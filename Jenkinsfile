@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'python:3.11'
-            args '-u root:root'
         }
     }
 
@@ -16,7 +15,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
-                python --version
                 pip install --upgrade pip
                 pip install -r requirements.txt
                 '''
@@ -26,15 +24,14 @@ pipeline {
         stage('Run pytest') {
             steps {
                 sh '''
-                pytest --html=report.html --self-contained-html
+                pytest ./tests --html=report.html --self-contained-html
                 '''
             }
-        }
-    }
-
-    post {
-        always {
-            archiveArtifacts artifacts: 'report.html', fingerprint: true
+            post {
+                always {
+                    archiveArtifacts artifacts: 'report.html', fingerprint: true
+                }
+            }
         }
     }
 }
